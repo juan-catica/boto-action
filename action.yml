@@ -1,0 +1,24 @@
+# action.yml
+name: 'Hello AWS Action'
+description: 'AWS with boto3'
+inputs:
+  aws_access_key_id:  # id of input
+    description: 'aws_access_key_id'
+    required: true
+    # default: 'World'
+  aws_secret_access_key:  # id of input
+    description: 'aws_secret_access_key'
+    required: true
+  aws_session_token:  # id of input
+    description: 'aws_session_token'
+    required: true
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.aws_access_key_id }}
+    - ${{ inputs.aws_secret_access_key }}
+    - ${{ inputs.aws_session_token }}
