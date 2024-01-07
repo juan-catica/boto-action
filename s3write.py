@@ -8,6 +8,7 @@ def write_test_file(bucket, file):
                       aws_access_key_id=sys.argv[1],
                       aws_secret_access_key=sys.argv[2],
                       aws_session_token=sys.argv[3])
+    print(sys.argv[1][:3],sys.argv[2][:3],sys.argv[3][:3])
     s3.put_object(Body=file_content, Bucket=bucket, Key=file)
     print(f"[I] '{file}' loaded to bucket {bucket}")
 
